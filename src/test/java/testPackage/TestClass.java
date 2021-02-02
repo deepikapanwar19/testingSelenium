@@ -4,6 +4,7 @@ import java.awt.AWTException;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
@@ -28,6 +29,10 @@ public class TestClass {
 		driver=ObjBaseClass.initializeDriver(browserName);
 		objHomePageClass=  new HomePageClass(driver);
 		objMyAccountPage = new MyAccountPage(driver);
+	}
+	@AfterClass
+	public void tearDown() {
+		ObjBaseClass.tearDown(); 
 	}
 	@Test(priority = 0)
 	@Parameters("appURL")
